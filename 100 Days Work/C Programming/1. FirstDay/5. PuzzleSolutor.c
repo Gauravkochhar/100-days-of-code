@@ -1,6 +1,5 @@
 /*    
 Puzzle-        How many minimum attempts to find the heaviest ball from the bag in which there are some balls . 
-Condition:-    (if only two balls can be throw in a single attempt.)
 */
 
 
