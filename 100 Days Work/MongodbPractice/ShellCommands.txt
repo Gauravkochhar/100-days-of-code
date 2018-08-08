@@ -1,0 +1,222 @@
+use vijay
+
+db
+
+show dbs
+
+db.testcollection.insert({"Name":"Test"})
+
+show dbs
+
+db.dropDatabase()
+
+use vijay
+
+db.testcollection.insert({"Name":"Gaurav"})
+
+db.dropDatabase()
+
+use gaurav
+
+db.createCollection("Users")
+
+db.profile.insert({"Name":"Gaurav"})
+
+show collections
+
+db.users.insert({"class":"five"})
+
+db.user.insert({"user1":"Raghav"})
+
+db.shoppingcart.insert({"car":"marcedes"})
+
+show collections
+
+db.employees.insert([
+{
+"EmpNo":"1",
+"FirstName":"Andrew",
+"LastName":"Neil",
+"Age":"30",
+"Gender":"Male",
+"Skill":"MongoDB",
+"Phone":"408-1234567",
+"Email":"Andrew.Neil@gmail.com",
+"Salary":"80000"
+},
+{
+"EmpNo":"2",
+"FirstName":"Brian",
+"LastName":"Hall",
+"Age":"27",
+"Gender":"Male",
+"Skill":"Javascript",
+"Phone":"408-1298367",
+"Email":"Brian.Hall@gmail.com",
+"Salary":"60000"
+},
+{
+"EmpNo":"3",
+"FirstName":"Chris",
+"LastName":"White",
+"Age":"40",
+"Gender":"Male",
+"Skill":"Python",
+"Phone":"408-4444567",
+"Email":"Chris.White@gmail.com",
+"Salary":"100000"
+},
+{
+"EmpNo":"4",
+"FirstName":"Debbie",
+"LastName":"Long",
+"Age":"32",
+"Gender":"Female",
+"Skill":"Project Management",
+"Phone":"408-1299963",
+"Email":"Debbie.Long@gmail.com",
+"Salary":"105000"
+},
+{
+"EmpNo":"5",
+"FirstName":"Ethan",
+"LastName":"Murphy",
+"Age":"45",
+"Gender":"Male",
+"Skill":"C#",
+"Phone":"408-3314567",
+"Email":"Ethan.Murphy@gmail.com",
+"Salary":"120000"
+},
+{
+"EmpNo":"6",
+"FirstName":"Felicia",
+"LastName":"Lee",
+"Age":"33",
+"Gender":"Female",
+"Skill":"MongoDB",
+"Phone":"408-8832567",
+"Email":"Felicia.Lee@gmail.com",
+"Salary":"85000"
+},
+{
+"EmpNo":"7",
+"FirstName":"George",
+"LastName":"Cyrus",
+"Age":"36",
+"Gender":"Male",
+"Skill":"MongoDB",
+"Phone":"408-9984567",
+"Email":"George.Cyrus@gmail.com",
+"Salary":"88000"
+},
+{
+"EmpNo":"8",
+"FirstName":"Hannah",
+"LastName":"Johnson",
+"Age":"26",
+"Gender":"Female",
+"Skill":"AngularJS",
+"Phone":"408-7654321",
+"Email":"Hannah.Johnson@gmail.com",
+"Salary":"72000"
+}])
+
+db.employees.find()
+
+db.employees.findOne()
+
+db.employees.find({
+  "Gender":"Male"
+})
+
+db.employees.find({
+"Skill":"MongoDB"
+})
+
+db.employees.find({
+"Age": {$lt : "36"}
+})
+
+db.employees.find({$or : [
+{"Skill":"MongoDB"},{"Age":{$lt : "36"}}
+]})
+
+db.employees.find({$and : [
+{"Skill":"MongoDB"},{"Age":{$lt : "36"}}
+]})
+
+db.employees.update(
+{"_id" : ObjectId("5b6b3a2d588d7c3a0c95df98")},
+{$set: {"Phone":"1234567890"}}
+)
+
+db.employees.find()
+
+db.employees.update({"Skill":"MongoDB"},
+{$set :{"Salary":"25000"}},
+{multi:true}
+)
+
+db.employees.update({"Age": {$lt: "30"}},
+{$set:{"Salary":"125000"}},
+{multi:true}
+)
+
+db.employees.find()
+
+db.employees.remove(
+{ "_id" : ObjectId("5b6b3a2d588d7c3a0c95df99")}
+)
+
+db.employees.remove(
+{"Gender":"Female"}
+)
+
+db.employees.find({},
+{"FirstName":1}
+)
+
+db.employees.find({},
+{"FirstName":1,"_id":0}
+)
+
+db.employees.find({},
+{"FirstName":1,"_id":0,"LastName":1}
+)
+
+db.employees.find({"Age":{$lt:"44"}},
+{"FirstName":1,"_id":0}
+).pretty()
+
+db.employees.find({},
+{"FirstName":1,"_id":0}
+).limit(2)
+
+db.employees.find({},
+{"FirstName":1,"_id":0}
+).skip(2)
+
+db.employees.find({},
+{"FirstName":1,"_id":0}
+).skip(2).limit(1)
+
+db.employees.find({},
+{"Age":1,"FirstName":1,"_id":0}
+).sort({"Age":1})
+
+db.employees.find({},
+{"Age":1,"FirstName":1,"_id":0}
+).sort({"Age":-1})
+
+db.employees.find()
+
+db.employees.getIndexes()
+
+db.employees.ensureIndex({"Email":1})
+
+db.employees.dropIndex({"Email":1})
+
+db.employees.aggregate([{$group: {_id: "$Gender",total:{$sum:1}}}])
+
+db.employees.aggregate([{$group: {_id: "$Gender",total:{$max:"$Age"}}}])
