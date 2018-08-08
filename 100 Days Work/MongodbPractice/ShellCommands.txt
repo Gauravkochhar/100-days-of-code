@@ -1,34 +1,8 @@
-use vijay
-
-db
-
 show dbs
-
-db.testcollection.insert({"Name":"Test"})
-
-show dbs
-
-db.dropDatabase()
-
-use vijay
-
-db.testcollection.insert({"Name":"Gaurav"})
-
-db.dropDatabase()
 
 use gaurav
 
-db.createCollection("Users")
-
-db.profile.insert({"Name":"Gaurav"})
-
-show collections
-
-db.users.insert({"class":"five"})
-
-db.user.insert({"user1":"Raghav"})
-
-db.shoppingcart.insert({"car":"marcedes"})
+db
 
 show collections
 
@@ -220,3 +194,5 @@ db.employees.dropIndex({"Email":1})
 db.employees.aggregate([{$group: {_id: "$Gender",total:{$sum:1}}}])
 
 db.employees.aggregate([{$group: {_id: "$Gender",total:{$max:"$Age"}}}])
+
+db.dropDatabase()
