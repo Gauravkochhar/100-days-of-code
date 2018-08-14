@@ -1,5 +1,17 @@
 #Write a Python program to compute the sum of the two reversed numbers and display the sum in reversed form.
 
+#Input
+#Test1=13, 14
+#Test2=130, 1
+#Test3=305, 794
+
+#Output
+#result1=27
+#result2=32
+#result3=1
+
+
+
 n1=int(input("Enter first Number"))
 n2=int(input("Enter second Number"))
 
