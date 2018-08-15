@@ -6,4 +6,4 @@ while(n>0):
     dv=dv+rem*base
     n=int(n/10)
     base=base*2
-print("Binary Number is: ",dv)
+print("Decimal Number is: ",dv)
