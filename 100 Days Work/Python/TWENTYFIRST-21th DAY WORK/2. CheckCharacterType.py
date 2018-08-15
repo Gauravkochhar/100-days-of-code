@@ -1,0 +1,12 @@
+if __name__ == '__main__':
+    s = input()
+    temp=any(i.isalnum() for i in s)
+    print (temp)
+    temp1=any(i.isalpha() for i in s)
+    print (temp1)
+    temp2=any(i.isdigit() for i in s)
+    print(temp2)
+    temp3=any(i.islower() for i in s)
+    print(temp3)
+    temp4=any(i.isupper() for i in s)
+    print(temp4)
