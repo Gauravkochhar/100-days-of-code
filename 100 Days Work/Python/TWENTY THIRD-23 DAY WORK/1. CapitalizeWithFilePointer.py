@@ -23,3 +23,12 @@ if __name__ == '__main__':
     result = solve(s)
     fptr.write(result + '\n')
     fptr.close()
+
+    """
+    ANOTHER WAY
+    
+    r=""
+    r=' '.join(i.capitalize() for i in s.split(' '))
+    return r
+    
+    """
