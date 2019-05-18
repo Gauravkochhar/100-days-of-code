@@ -37,7 +37,7 @@ public class Main
             ls.add(sum);
             System.out.print(sum+" ");
         }
-        int i =0;
+        int i=0;
 	int j=0;
 	    for(i=0;i<ls.size();i++){
 	        for(j=0;j<ls.get(i);j++){
