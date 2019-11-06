@@ -1,0 +1,27 @@
+A = [1,2,3,4];
+B = [4,5,6,7];
+
+ob = [{attributeName: 'Email',type: 'Email'},
+      {attributeName: 'phone',type: 'Number'},
+      {attributeName: 'homeNumber',type: 'Number'},
+      {attributeName: 'homeNumber',type: 'Number'}
+      {attributeName: 'homeNumber',type: 'Number'}
+      {attributeName: 'homeNumber',type: 'Number'}
+      {attributeName: 'homeNumber',type: 'Number'}
+      {attributeName: 'homeNumber',type: 'Number'}
+      ];
+      
+a = _.intersectionWith(A,B,_.isEqual)
+
+b = _.difference(A,B)
+
+result = _.sortBy(A,(number) => {
+  return !_.includes(B,number)
+})
+
+result = _.filter(A,(number) => {
+  return _.includes(B,number);
+})
+
+
+
